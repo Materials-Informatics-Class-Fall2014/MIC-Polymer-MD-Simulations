@@ -5,11 +5,11 @@ email: alohse3@gatech.edu
 # Need repo and pages description: repo-stores much of the content of the project
 # pages - is a subset of the repo showing what you want
 description: >
-  Tell us about your site 
+  Crystal orientation of polymer molecular dynamics simulations are investigated.
 baseurl: "/MIC-Polymer-MD-Simulations" # replace ``/research-pages`` with the name of the parents repository
 url: "Materials-Informatics-Lab.github.io" # replate ``Materials-Informatics-Lab`` with your Github username
 twitter_username: twitterhandle
-disqus: tonyfast
+disqus: alohse
 
 # Build settings
 markdown: kramdown
