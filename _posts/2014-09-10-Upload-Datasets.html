@@ -37,8 +37,6 @@ dropbox:
 {% for sim in page.dropbox.dir %}
 ## {{sim.title}}
 
-|---|---|
-|Number of Atoms|{{sim.numatoms}}|
-|Number of Chains|{{sim.numchains}}|
-|---|---|
+<tr><td>Number of Atoms</td><td>{{sim.numatoms}}</td><td>Number of Chains</td><td>{{sim.numchains}}</td></tr>
+
 {% endfor %}
