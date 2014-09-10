@@ -1,10 +1,12 @@
 # Site settings
 # Enter your own credentials here
-title: "My Blog"
-email: you@somewhere.com
+title: "Molecular Dynamics of Polyethylene Crystallization"
+email: alohse3@gatech.edu
+# Need repo and pages description: repo-stores much of the content of the project
+# pages - is a subset of the repo showing what you want
 description: >
-  Tell us about your site
-baseurl: "/research-pages" # replace ``/research-pages`` with the name of the parents repository
+  Tell us about your site 
+baseurl: "/MIC-Polymer-MD-Simulations" # replace ``/research-pages`` with the name of the parents repository
 url: "Materials-Informatics-Lab.github.io" # replate ``Materials-Informatics-Lab`` with your Github username
 twitter_username: twitterhandle
 disqus: tonyfast
@@ -18,7 +20,7 @@ paginate: 5
 
 
 gh:
-  user: Materials-Informatics-Lab
-  repo: research-pages
+  user: alohse
+  repo: MIC-Polymer-MD-Simulations
   # Branch hosting Github pages
   branch: gh-pages
