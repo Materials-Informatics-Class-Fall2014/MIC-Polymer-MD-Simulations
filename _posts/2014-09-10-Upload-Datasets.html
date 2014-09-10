@@ -13,6 +13,7 @@ dropbox:
       description: >
         Need more info on boundary conditions and model conditions
     - url: https://www.dropbox.com/sh/ojehgtsbl58ijid/AABNL23mYfOy5HO_1_El_7NYa/Polymer-Data-GT-Jacobs/pe400tilt6l?dl=0
+      title: "*Untitled*"
       numchains: 20
       numatoms: 8000
       description: >
@@ -37,7 +38,10 @@ dropbox:
 {% for sim in page.dropbox.dir %}
 ## {{sim.title}}
 
-<table>
-<tr><td>Number of Atoms</td><td>{{sim.numatoms}}</td><td>Number of Chains</td><td>{{sim.numchains}}</td></tr>
-</table>
+{{sim.description}}
+
+* **Number of Atoms** :: {{sim.numatoms}}
+* **Number of Chains** :: {{sim.numchains}}
+
+
 {% endfor %}
