@@ -30,4 +30,15 @@ dropbox:
 
 **Three** polymer datasets have been made available on Dropbox.  Please see the directies following the link below.
 
-> [All Data]({{page.dropbox.set}})
+> [All Data Hosted on Dropbox]({{page.dropbox.set}})
+
+# Each Set
+
+{% for sim in page.dropbox.dir %}
+## {{sim.title}}
+
+---|---
+Number of Atoms | {{sim.numatoms}}
+Number of Chains | {{sim.numchains}}
+---|---
+{% endfor %}
