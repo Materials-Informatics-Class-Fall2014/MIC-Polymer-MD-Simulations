@@ -6,6 +6,8 @@ published: true
 
 slideshare:
 - id: 33944674
+
+latex: true
 ---
 
 ## Plotting Realizations of Spatiotemporal Data
@@ -17,11 +19,25 @@ or local states at the spatial positions they are sampled at.
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/33944674?startSlide=16" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 
-> The above visualization illustrates the evolution of surface curvature ( illustrated by the colormap ) sampled at 
+> The above visualization illustrates the evolution of surface curvature (illustrated by the colormap) sampled at 
 non-uniform positions in space.  Each subplot is illustrating the spatial variation of a local state at a place in time under a
 set of experiment conditions (ie. control parameters, boundary conditions).
 
+#### 3-D Contour Plots in Matlab
+
+[Vol3d](http://www.mathworks.com/matlabcentral/fileexchange/22940-vol3d-v2) is a great visualization tool on [MathLab Central](http://www.mathworks.com/matlabcentral/).
 
 ## Plotting Temporal Derivatives of SpatioTemporal Data
+
+Plotting voxel data and non-uniformally sampled data require two different procedures.
+
+### Voxel Data Use Case
+
+Assume $A1$ and $A2$ are 3-D arrays sampled at times $t1$ and $t2$, respectively.  
+
+$$\frac{A2-A1}{t2-t1}$$
+
+
+
 
 ## Plotting Considerations for Multi-Phase Polymer Datasets
