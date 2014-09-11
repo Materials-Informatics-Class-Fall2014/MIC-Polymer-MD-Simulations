@@ -13,7 +13,8 @@ autonumber: true
 
 ## Plotting Realizations of Spatiotemporal Data
 
-Both (1.) time steps and (2.) processing conditions are metadata on a spatial visualization.  
+Both (1.) time steps, (2.) processing conditions, and (4.) number of atoms are metadata on a spatial visualization.  In the case of (4.),
+see in this post I have [embedded the number of atoms and chains as front-matter](https://github.com/alohse/MIC-Polymer-MD-Simulations/blob/bf3400f90f1a7e2611c6dd81f6a1849e726134c9/_posts/2014-09-10-Upload-Datasets.html). 
 That is to say that information will be provided as context to the visualization in the form of 
 a title, comment, or other annotation.  A typical spatiotemporal visualization will plot the field values
 or local states at the spatial positions they are sampled at.
@@ -24,9 +25,20 @@ or local states at the spatial positions they are sampled at.
 non-uniform positions in space.  Each subplot is illustrating the spatial variation of a local state at a place in time under a
 set of experiment conditions (ie. control parameters, boundary conditions).
 
+## Plotting Spatial Datasets
+
+When plotting 3-D datasets, usually the colors annotate local state or field variables and the position of points or voxels define the
+spatial domain.
+
+### Plotting Voxel Data
+
+Voxel data has a uniformly-gridded spatial data and each value in a voxel is a *numerical* or *categorical* local state or
+response variable.  
+
 #### 3-D Contour Plots in Matlab
 
-[Vol3d](http://www.mathworks.com/matlabcentral/fileexchange/22940-vol3d-v2) is a great visualization tool on [MathLab Central](http://www.mathworks.com/matlabcentral/).
+* [**Vol3d**](http://www.mathworks.com/matlabcentral/fileexchange/22940-vol3d-v2) is a great visualization tool on [MathLab Central](http://www.mathworks.com/matlabcentral/).
+* [**SliceoMatic**] serves up interactive visualizations with controls on the slices plotted, isosurfaces, and transparencies.
 
 ## Plotting Temporal Derivatives of SpatioTemporal Data
 
@@ -34,14 +46,34 @@ Plotting voxel data and non-uniformally sampled data require two different proce
 
 ### Voxel Data Use Case
 
-Assume $A1$ and $A2$ are 3-D arrays sampled at times $t1$ and $t2$, respectively.  A simple element-wise [numerical derivative](http://en.wikipedia.org/wiki/Numerical_differentiation)
+Assume $A1$ and $A2$ are ``3-D`` arrays sampled at times $t1$ and $t2$, respectively.  A simple element-wise [numerical derivative](http://en.wikipedia.org/wiki/Numerical_differentiation)
 can be computed producing $dA$:
 
-dA = $$\frac{A2_i-A1_i}{t2-t1}$$
+$$dA_i = \frac{A2_i-A1_i}{t2-t1}\forall{i}$$
 
-$i$ indicates pixel values.  $dA$ is a new 3-D array that can be visualized using a 3-D contour plot.
+$i$ indicates pixel values.  $dA$ is a new 3-D array that can be visualized using a 3-D contour plot (*see above*).
 
+> The spatial domain is defined by the [index notation](en.wikipedia.org/wiki/Index_notation) in your voxel array.  The values 
+in each voxel are ``numerical`` or ``categorical`` local state or response values.
 
+### Non-uniformly Gridded Data Use Case
+
+> This is the case for the polymer datasets.  There may be a scenario were you grid the voxel data and the Voxel case will apply.
+
+Assume $B1$ and $B2$ are ``Nx4`` arrays sampled at times $t1$ and $t2$, respectively. ``N`` is the number spatial positions
+sampled with the first **3** columns are ``x``,``y``, and ``z`` positions, respectively, with the **last** column
+providing ``numerical`` or ``categorical`` local state or response values.
+
+**Requiring** each row in $B1$ and $B2$ correspond to the same tracking point.  *Someone help me say this better please.*
+
+$$dB_i = \frac{B2_i-B1_i}{t2-t1}\forall{i}$$
+
+$i$ indicates each array index.  $dB$ is a new ``Nx4`` where the first **3** columns are changes ``x``,``y``, and ``z`` positions, respectively, with the **last** column
+providing change in a ``numerical`` local state or response values.
+
+A [quiver plot](http://www.mathworks.com/help/matlab/ref/quiver.html) is useful to visualize this type of data.  One could 
+discretize the local state space and plot different colored quivers corresponding to the magnitude in the change of the 
+local state and the length of the quivers illustrate the change in position.  *Categorical fields are likely independent of time.*
 
 
 ## Plotting Considerations for Multi-Phase Polymer Datasets
