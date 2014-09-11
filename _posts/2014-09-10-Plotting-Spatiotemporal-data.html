@@ -8,6 +8,7 @@ slideshare:
 - id: 33944674
 
 latex: true
+autonumber: true
 ---
 
 ## Plotting Realizations of Spatiotemporal Data
@@ -33,9 +34,12 @@ Plotting voxel data and non-uniformally sampled data require two different proce
 
 ### Voxel Data Use Case
 
-Assume $A1$ and $A2$ are 3-D arrays sampled at times $t1$ and $t2$, respectively.  
+Assume $A1$ and $A2$ are 3-D arrays sampled at times $t1$ and $t2$, respectively.  A simple element-wise [numerical derivative](http://en.wikipedia.org/wiki/Numerical_differentiation)
+can be computed producing $dA$:
 
-$$\frac{A2-A1}{t2-t1}$$
+dA = $$\frac{A2_i-A1_i}{t2-t1}$$
+
+$i$ indicates pixel values.  $dA$ is a new 3-D array that can be visualized using a 3-D contour plot.
 
 
 
