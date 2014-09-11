@@ -7,6 +7,10 @@ published: true
 slideshare:
 - id: 33944674
 
+# A flickr set of Polymer MD plots
+flickr: 
+  set: https://www.flickr.com/photos/tonyfast/sets/72157642556772734/
+
 latex: true
 autonumber: true
 ---
@@ -45,6 +49,14 @@ response variable.
 * [**Vol3d**](http://www.mathworks.com/matlabcentral/fileexchange/22940-vol3d-v2) is a great visualization tool on [MathLab Central](http://www.mathworks.com/matlabcentral/).
 * [**SliceoMatic**](http://www.mathworks.com/matlabcentral/fileexchange/764-sliceomatic) serves up interactive visualizations with controls on the slices plotted, isosurfaces, and transparencies.
 
+### Plotting Non-uniformly gridded data
+
+> This project sits here.
+
+[``Scatter3``](http://www.mathworks.com/help/matlab/ref/scatter3.html) is an example of Matlab function to make interactive
+3-D scatter plots where the user can control the size and color of the scatter points.  Size and color allow
+up to 2 local states or responses to be explored at one time.
+
 ## Plotting Temporal Derivatives of SpatioTemporal Data
 
 Temporal derivatives are different than spatial derivatives.  Spatial derivatives can change in time.
@@ -82,3 +94,7 @@ local state and the length of the quivers illustrate the change in position.  *C
 
 
 ## Plotting Considerations for Multi-Phase Polymer Datasets
+
+[This flickr set]({{page.flickr.set}}) has example visualizations of these polymer datasets.  Each 3-D scatter plot
+has scatter points with colors overlain that indicate the ``chain`` to which each point belongs. In polymer datasets,
+there is a connectivity of individual atoms.  These maybe be important to add to a visualization.
