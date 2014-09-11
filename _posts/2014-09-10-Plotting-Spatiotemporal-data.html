@@ -13,10 +13,13 @@ autonumber: true
 
 ## Plotting Realizations of Spatiotemporal Data
 
-Both (1.) time steps, (2.) processing conditions, and (4.) number of atoms are metadata on a spatial visualization.  In the case of (4.),
-see in this post I have [embedded the number of atoms and chains as front-matter](https://github.com/alohse/MIC-Polymer-MD-Simulations/blob/bf3400f90f1a7e2611c6dd81f6a1849e726134c9/_posts/2014-09-10-Upload-Datasets.html). 
+Both (1.) time steps, (2.) processing conditions, and (4.) number of atoms are metadata on a spatial visualization. 
 That is to say that information will be provided as context to the visualization in the form of 
-a title, comment, or other annotation.  A typical spatiotemporal visualization will plot the field values
+a title, comment, or other annotation.  
+
+> In the case of (4.), I have [embedded the number of atoms and chains as front-matter](https://github.com/alohse/MIC-Polymer-MD-Simulations/blob/bf3400f90f1a7e2611c6dd81f6a1849e726134c9/_posts/2014-09-10-Upload-Datasets.html). 
+
+A typical spatiotemporal visualization will plot the field values
 or local states at the spatial positions they are sampled at.
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/33944674?startSlide=16" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
@@ -27,22 +30,24 @@ set of experiment conditions (ie. control parameters, boundary conditions).
 
 ## Plotting Spatial Datasets
 
-When plotting 3-D datasets, usually the colors annotate local state or field variables and the position of points or voxels define the
-spatial domain.
+When plotting 3-D datasets, usually the colors annotate local state or field variables these are sampled at positions in space. 
+The spatial sampling is either uniform, voxel data or non-uniform data.
+
+Plotting voxel data and non-uniformally sampled data require two different procedures.
 
 ### Plotting Voxel Data
 
-Voxel data has a uniformly-gridded spatial data and each value in a voxel is a *numerical* or *categorical* local state or
+Voxel data has a uniformly-gridded spatial domain and each value in a voxel is a *numerical* or *categorical* local state or
 response variable.  
 
 #### 3-D Contour Plots in Matlab
 
 * [**Vol3d**](http://www.mathworks.com/matlabcentral/fileexchange/22940-vol3d-v2) is a great visualization tool on [MathLab Central](http://www.mathworks.com/matlabcentral/).
-* [**SliceoMatic**] serves up interactive visualizations with controls on the slices plotted, isosurfaces, and transparencies.
+* [**SliceoMatic**](http://www.mathworks.com/matlabcentral/fileexchange/764-sliceomatic) serves up interactive visualizations with controls on the slices plotted, isosurfaces, and transparencies.
 
 ## Plotting Temporal Derivatives of SpatioTemporal Data
 
-Plotting voxel data and non-uniformally sampled data require two different procedures.
+Temporal derivatives are different than spatial derivatives.  Spatial derivatives can change in time.
 
 ### Voxel Data Use Case
 
