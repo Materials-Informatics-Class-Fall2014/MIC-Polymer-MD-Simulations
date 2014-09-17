@@ -35,27 +35,28 @@ The crystallization behavior of polymers (PE) from the melt is affected by vario
 5. Generate processing - structure linkages through regressions of microstructure evolution paths in PCA space versus selected processing parameters (time, temperature, strain state, etc.)
 6. Validate linkage through the prediction of structure given set of processing parameters.
 
+### Visualizations of Datasets
+
+We used codes from Tony as a guide to visualize the MD data over times.
+
+*The codes we used are [here](https://github.com/alohse/MIC-Polymer-MD-Simulations/tree/gh-pages/CODES)
+
+*Example image produced: ![Polyethylene Crystallization](https://farm6.staticflickr.com/5556/15240068646_8a39ffc746_o.png)
+
+### 2-pt Statistics
+
+* A trial code we wrote to demonstrate microstructure generation and 2-pt. statistics can be found [here](https://github.com/alohse/MIC-Polymer-MD-Simulations/tree/gh-pages/CODES)
+
+### Immediate Work
+
+* Decide on appropriate bin size to capture representation of both density and crystal orientation. 
+* Understand how best to track these structures through time
+  * Does size/number of voxels need to change in time?
+* Develop code to accurately describe polymer chain vector within a specific voxel
+  * Use code to: calculate Herman's orientation, crystalline orientation (through euler angles)
+
 ### References
 
 * Dong, X. et. al. Dependence of mechanical properties on crystal orientation of semi-crystalline polyethylene structures. Polymer 55 (2014) 4248-4257.
 * Dong, X. et. al. Effect of network structure from different processing conditions on the mechanical property of semi-crystalline polymers. MRS Symposium, 1619, 2014.
-
-
-### Visualizations of Datasets
-
-Used codes from Tony as a guide to create codes to visualize the data over the various timesteps.
-
-*Codes can be found [here](https://github.com/alohse/MIC-Polymer-MD-Simulations/tree/gh-pages/CODES)
-
-*Example image produced: ![Polyethylene Crystallization](https://www.flickr.com/photos/127103649@N04/15240068646/player/)
-
-### 2-pt Statistics
-
-* Basic 2-pt statistics code has been written and is [here](https://github.com/alohse/MIC-Polymer-MD-Simulations/tree/gh-pages/CODES)
-
-### Immediate Work
-
-* Need to decide on appropriate bin size to capture representation of both density and crystal orientation. 
-* Intend to describe crystal orientation using Euler angles. 
-  * Need to better understand how we can track these structures through time, does voxel size change/number of voxels?
-* Develop code to accurately describe polymer chain vector within a voxel.
+* Fullwood, D.T. et. al. Microstructure reconstructions from 2-point statistics using phase-recovery algorithms. Acta Materialia 56 (2008) 942-948
