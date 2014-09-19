@@ -1,0 +1,30 @@
+---
+layout: post
+title: Rundown of the Data in our Possession
+---
+
+* Data can be accessed at this [public dropbox](https://www.dropbox.com/sh/ojehgtsbl58ijid/AAD_ah4p5cv7_fE0UhA03JF6a/Polymer-Data-GT-Jacobs?dl=0)
+* My information is mainly coming from [this paper](http://journals.cambridge.org/action/displayAbstract?fromPage=online&aid=9281343&fileId=S1946427414005430)
+
+### All Files
+
+1. 20 united atom PE chains with ~400 repeating units
+2. 1 ns constant stress simulation performed at 500 K and atmsohperic pressure
+  ** Generates well equilibrated melt
+3. Cool to 425 K at 2 K/ns (still isotropic)
+4. Biaxial strain applied - 2x in X and 3x in Y
+5. Quench melt to 375 K, hold for 20 ns
+
+### pe400tilt6l : Constant Volume Files
+
+1. constant strain rate of 10e7
+2. Poisson ratio assumed 0.5
+3. Crystallization time of 10ns - total strain of 1 in z dimension
+
+### aniso : Constant Stress Files
+
+1. Start from unoriented melt, 425 K for 2 ns (equilibration)
+2. Quench melt to 375 K
+3. Constant stress of 800 MPa in z-axis
+4. timestep - 1 femtosecond
+5. 20 ns total crystallization process
