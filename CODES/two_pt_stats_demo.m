@@ -17,7 +17,7 @@ close all
 H = 2;
 
 % el: side length of square
-el = 21;
+el = 11;
 
 % S: the total number of spatial bins
 S = el^2;
@@ -30,7 +30,7 @@ if quilted_microstructure == 1
 	ms = zeros(el,el);
 	for ii = 1:el
 		for jj = 1:el
-			inter = cos((2.5*ii)/(2*pi()))*cos((2.5*jj)/(2*pi()));
+			inter = cos((1.25*ii)/(2*pi()))*cos((1.25*jj)/(2*pi()));
 			ms(ii,jj) = round(1+(H-1)*(0.5 + 0.5*inter));
 		end
 	end
@@ -61,54 +61,128 @@ end
 % FFT frequency space microstructure function
 MSF = fft2(msf);
 
-%% 2-pt statistics autocorrelation
 
-% 2-pt statistics autocorrelation for phase 1 in fft space
-TPS_auto = (1 / (el^2)) .* abs(MSF(:,:,1)).^2;
+%% Compute the autocorrelations
 
-% 2-pt statistics autocorrelation for phase 1 in real space
-tps_auto = real(ifft2(TPS_auto));
+% find the volume fraction of phase 1
+msf1 = msf(:,:,1);
+% vol1: volume fraction of phase 1
+vol1 = sum(msf1(:))/S;
 
-% plot the autocorrelation
+TPS = zeros(el,el,H,H);
+tps = zeros(el,el,H,H);
 
-% center the autocorrelation for viewing
+for h = 1: H
+    
+    % compute the correlation
+    TPS(:,:,h,h) = (1/S)*(abs(MSF(:,:,h)).^2);
+    % convert the correlation to real space
+    tps(:,:,h,h) = real(ifft2(TPS(:,:,h,h)));
+
+end
+
+
+%% 2-pt statistics autocorrelation and crosscorrelations (2 through H-1) for phase 1
+
+for h=2: H - 1
+    
+    P1 = abs(MSF(:,:,1)) .* exp(-1i * angle(MSF(:,:,1)));
+    P2 = abs(MSF(:,:,h)) .* exp(1i * angle(MSF(:,:,h)));
+
+    % compute the correlation
+    TPS(:,:,1,h) = (1 / (el^2)) .* P1 .* P2;
+
+    % correlation in real space
+    tps(:,:,1,h) = real(ifft2(TPS(:,:,1,h)));
+
+end
+
+%% compute the F1H crosscorrelation
+
+tps(:,:,1,H) = vol1 .* ones(el,el);
+for h = 1:H-1
+    tps(:,:,1,H) = tps(:,:,1,H) - tps(:,:,1,h);
+end
+
+TPS(:,:,1,H) = fft2(tps(:,:,1,H));
+
+
+%% compute the rest of the statistics
+
+for ii = 2:H
+    for jj = 1:H
+        
+        if ii ~= jj
+            TPS(:,:,ii,jj) = (conj(TPS(:,:,1,ii)).*TPS(:,:,1,jj)) ./ TPS(:,:,1,1);
+            tps(:,:,ii,jj) = real(ifft2(TPS(:,:,ii,jj)));
+        end
+        
+    end
+end
+
+
+%% plot all of the 2-pt statistics
+
 shi = floor(0.5*el);
-% tps_auto_cen =  circshift(circshift(tps_auto,[shi,0]),[0,shi]); %Matlab 2013b version
-tps_auto_cen =  circshift(circshift(tps_auto,shi,1),shi,2); %Matlab 2014b version
+c = 1;
+tps_cen = zeros(el,el,H,H);
 
 figure(2)
-image(tps_auto_cen,'CDataMapping','scaled')
-colormap('jet')
-axis equal 
-axis tight
-title('2-Point statistics autocorrelation')
-colorbar
+
+for ii = 1:H
+    for jj = 1:H
+    
+    % center the crosscorrelation for viewing
+
+    tps_cen(:,:,ii,jj) =  circshift(circshift(tps(:,:,ii,jj),[shi,0]),[0,shi]); %Matlab 2013b version
+%     tps_cen(:,:,ii,jj) =  circshift(circshift(tps(:,:,ii,jj),shi,1),shi,2); %Matlab 2014b version
+               
+    subplot(H,H,c)
+    image(tps_cen(:,:,ii,jj),'CDataMapping','scaled')
+    colormap('jet')
+    axis equal 
+    axis tight
+    title(['2-point statistics: ',num2str(ii),' ,',num2str(jj)])
+    colorbar
+    
+    c = c + 1;
+    end
+end
 
 
-%% 2-pt statistics crosscorrelation
-
-% 2-pt statistics crosscorrelation for phase 1 in fft space
-pha1 = 1;
-pha2 = 2;
-P1 = abs(MSF(:,:,pha1)) .* exp(-1i * angle(MSF(:,:,pha1)));
-P2 = abs(MSF(:,:,pha2)) .* exp(1i * angle(MSF(:,:,pha2)));
-
-TPS_cross = (1 / (el^2)) .* P1 .* P2;
-
-% 2-pt statistics crosscorrelation for phase 1 in real space
-tps_cross = real(ifft2(TPS_cross));
-
-% plot the crosscorrelation
-
-% center the crosscorrelation for viewing
-shi = floor(0.5*el);
-% tps_cross_cen =  circshift(circshift(tps_cross,[shi,0]),[0,shi]); %Matlab 2013b version
-tps_cross_cen =  circshift(circshift(tps_cross,shi,1),shi,2); %Matlab 2014b version
-
-figure(3)
-image(tps_cross_cen,'CDataMapping','scaled')
-colormap('jet')
-axis equal 
-axis tight
-title('2-point statistics crosscorrelation')
-colorbar
+%% Test the 2-pt statistics: (less computationaly efficient)
+% 
+% figure(3)
+% 
+% TPS_t = zeros(el,el,H,H);
+% tps_t = zeros(el,el,H,H);
+% tps_t_cen = zeros(el,el,H,H);
+% 
+% c = 1;
+% 
+% for ii= 1:H
+%     for jj = 1:H
+%     
+%     P1 = abs(MSF(:,:,ii)) .* exp(-1i * angle(MSF(:,:,ii)));
+%     P2 = abs(MSF(:,:,jj)) .* exp(1i * angle(MSF(:,:,jj)));
+% 
+%     % compute the correlation
+%     TPS_t(:,:,ii,jj) = (1 / (el^2)) .* P1 .* P2;
+% 
+%     % correlation in real space
+%     tps_t(:,:,ii,jj) = real(ifft2(TPS_t(:,:,ii,jj)));
+% 
+%     tps_t_cen(:,:,ii,jj) =  circshift(circshift(tps_t(:,:,ii,jj),shi,1),shi,2); %Matlab 2014b version
+%                
+%     subplot(H,H,c)
+%     image(tps_cen(:,:,ii,jj),'CDataMapping','scaled')
+%     colormap('jet')
+%     axis equal 
+%     axis tight
+%     title(['2-point statistics test: ',num2str(ii),' ,',num2str(jj)])
+%     colorbar
+%     
+%     c = c + 1;
+%     
+%     end
+% end
