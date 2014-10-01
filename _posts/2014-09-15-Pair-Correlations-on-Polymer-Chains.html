@@ -1,0 +1,49 @@
+---
+layout: post
+title: Pair correlation functions for polymer chains in molecular dynamics simulations
+author: Noah Paulson
+
+---
+
+### Introduction
+
+Pair correlations were performed within chains and between chains from the first time-step of the aniso_11 simulation. The pair correlation is essentially a histogram of the distance between all particles where the radial distance between particles is binned. This binning may or may not be normalized by the volume of the 'shells' created by this binning scheme (i.e. at farther correlation distances the effective shell volume would increase, and so would the number of particles within the bounds of that bin). _All plots are from the dump.deform375_10e7_5aniso_11 simulation file._
+
+First, two chains were chosen for analysis, one which appeared more amorphous, and on which appeared more crystalline, both from the first time-step of the aniso_11 simulation. Pair correlations were performed on each of these chains. The chains were tiled to account for periodicity, and the maximum distance considered was 20 units
+
+_ Images of the "amorphous" chain and the associated pair correlation are included below_
+
+![chain19_aniso11_timestep6100000](https://farm4.staticflickr.com/3929/15220566758_bba2f80ccf_o.png)
+
+![pair_correlation_chain19_aniso11_timestep6100000](https://farm4.staticflickr.com/3928/15220418139_b4502fea73_o.png)
+
+_ Images of the "crystalline" chain and the associated pair correlation are included below_
+
+![chain7_aniso11_timestep6100000](https://farm4.staticflickr.com/3929/15220418479_78b41d33b1_o.png)
+
+![pair_correlation_chain7_aniso11_timestep6100000](https://farm4.staticflickr.com/3928/15384135506_70e3e5146c_o.png)
+
+Then, the pair correlation between two 'crystalline' chains was performed. The distances between each particle in the first chain and every other particle in the second within 20 units were considered (where the second chain was tiled to account for the periodicity of the structure)
+
+_ Images of both "crystalline" chains and their associated pair correlation are included below_
+
+![chain10_chain12_aniso11_timestep6100000](https://farm3.staticflickr.com/2949/15220566628_17a45d4b7b_o.png)
+
+![pair_correlation_chain10_chain12_aniso11_timestep6100000](https://farm3.staticflickr.com/2944/15220418099_7bc81e2a9f_o.png)
+
+The pair correlations from within a single chain clearly show the periodicity of structure at a close distance, though the differences between the 'amorphous' and 'crystalline' pair correlations are not clear. In addition, it is not clear what trend, if any can be resolved from the pair correlation between adjacent chains.
+
+
+Other plots from this effort can be viewed in this [flickr album](https://www.flickr.com/photos/126731708@N03/sets/72157647821108278/)
+
+### Relevant Codes
+
+The codes which produced these plots can be found at this [link](https://github.com/alohse/MIC-Polymer-MD-Simulations/tree/gh-pages/CODES)
+
+**The relevant codes include:**
+
+* read_conv_data_nhp_v2.m : This script reads the plaintext simulation files and produces a Matlab file (total_info_xx.mat), containing arrays of the time-steps, number of monomers, bounds of the simulation volume and locations of all monomers and chains for the length of the simulation. _Note that the original aniso files have some corrupted data which must be removed for the script to function._
+
+* pair_correlation_single_chain_v3.m : This script calculates the pair correlation within a specified chain
+
+* pair_correlation_two_chain_v1.m : This script calculates the pair correlation between two specified chains
