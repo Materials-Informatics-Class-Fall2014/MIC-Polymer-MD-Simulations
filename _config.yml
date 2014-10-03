@@ -9,7 +9,7 @@ description: >
 baseurl: "/MIC-Polymer-MD-Simulations" # replace ``/research-pages`` with the name of the parents repository
 url: "Materials-Informatics-Lab.github.io" # replate ``Materials-Informatics-Lab`` with your Github username
 twitter_username: twitterhandle
-disqus: alohse
+disqus: PEMDsimulations
 
 # Build settings
 markdown: kramdown
