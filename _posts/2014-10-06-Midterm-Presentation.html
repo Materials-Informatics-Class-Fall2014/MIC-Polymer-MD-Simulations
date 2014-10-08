@@ -4,7 +4,7 @@ title: Pair Correlations and Orientation Measurements
 author: Noah Paulson, Alex Lohse
 ---
 
-### Introduction
+## Introduction
 
 The crystallization behavior of polymers (PE) from the melt is affected by various processing conditions. Through the selection of processing paths and procedures, (e.g. blow molding) the evolution of crystallinity and crystalline orientation in polymeric materials can be controlled. These changes in structure directly affect mechanical properties of interest, therefore it is advantageous to understand how processing leads to structure in this materials system.
 
@@ -13,16 +13,19 @@ We want to characterize the linkage between processing (including material start
 [_The preceding text was taken from this original post_](http://alohse.github.io/MIC-Polymer-MD-Simulations/2014/09/15/Polymer-Project-Week5.html)
 
 
-#### Simulation Summary
+## Simulation Summary
 
 * 8000 monomer, 20 polymer chain MD simulations
-* At initial timestep there are crystalline and amorphous regions
+* At initial time-step there are crystalline and amorphous regions
+* Uniaxial loading over millions of femtoseconds
+
+### Examination of Crystalline and Amorphous Regions 
 
 _All images below produced using [VMD](http://www.ks.uiuc.edu/Research/vmd/)_
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/39995948" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/alohse/images-slideshow10714" title="MatIn-10/8/2014" target="_blank">MatIn-10/8/2014</a> </strong> from <strong><a href="http://www.slideshare.net/alohse" target="_blank">alohse</a></strong> </div>
 
-* Uniaxial loading over millions of femtoseconds
+### Animation of Complete Simulation
 
 <iframe src="//player.vimeo.com/video/107716991" width="500" height="241" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/107716991">aniso14 tot v2</a> from <a href="http://vimeo.com/user32884929">Noah Paulson</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
@@ -31,9 +34,9 @@ _Aniso 15 - Timestep: 11790000_
 ![Aniso 15 - Timestep: 11790000](https://farm4.staticflickr.com/3946/15472885135_00f34b687e_n.jpg)
 
 
-### Pair Correlations
+## Pair Correlations
 
-The pair correlation relates the position of objects in space by the distance between them. The distance between every particle and every other particle is binned into a histogram by radius. In our case we relate the position of each monomer in a chain with the monomers from another chain. Each histogram freqency bin is normalized by the volume of the shell which is bounded by the radii bounding the bin. As our simulation volume is periodic, the second chain is tiled in all directions so that the pair correlation reflects the physical scenario. 
+The pair correlation relates the position of objects in space by the distance between them. The distance between every particle and every other particle is binned into a histogram by radius. In our case we relate the position of each monomer in a chain with the monomers from another chain. Each histogram frequency bin is normalized by the volume of the shell which is bounded by the radii bounding the bin. As our simulation volume is periodic, the second chain is tiled in all directions so that the pair correlation reflects the physical scenario. 
 
 _Images of both "crystalline" chains and their associated pair correlation are included below_
 
@@ -44,19 +47,19 @@ _Images of both "crystalline" chains and their associated pair correlation are i
 [_The preceding images and text were taken from this original post_](http://alohse.github.io/MIC-Polymer-MD-Simulations/2014/10/01/Pair-Correlations-on-Polymer-Chains.html)
 
 
-### Orientation Calculations
+## Orientation Calculations
 
 
 
-### Current Research Questions
+## Current Research Questions
 
-* How can we leverage the pair correlation of two chains to beter understand the crystallinity in our data?
+* How can we leverage the pair correlation of two chains to better understand the crystallinity in our data?
 
 * How finely can we discretize our data without sacrificing accuracy in the determination of crystallinity?
 
 vs.
 
-* How finely must we disretize our data to achive useful spatial statistics?
+* How finely must we discretize our data to achieve useful spatial statistics?
 
 
 ### References
