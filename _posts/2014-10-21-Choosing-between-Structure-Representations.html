@@ -5,22 +5,9 @@ tagline: >
   A post to accompany an in-class presentation detailing various options for the Representation of the PEMD structure
 
 author: Noah Paulson, Alex Lohse
-latex: true
-
-voxelize:
-- https://farm4.staticflickr.com/3933/14975339364_656c12410f_o.png
-- https://farm4.staticflickr.com/3945/15410073037_9d94865fb6_o.png
--
--
--
-
+latex:true
 simvol:
-- https://farm4.staticflickr.com/3946/15409578529_af45c3debe_o.png
 - https://farm4.staticflickr.com/3934/14975339164_3afb94914f_o.png
-- https://farm4.staticflickr.com/3935/15409453139_d1ef0625e1_o.png
-
-links:
- - https://github.com/tonyfast/SpatialStatisticsFFT
 
 ---
 
@@ -37,64 +24,41 @@ We want to characterize the linkage between processing (including material start
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/40567275" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
 
+### 2-point Statistics for Entire Simulation Volume
+
+* image of simulation volume
+![stats_z_slice_tilt6l]({{page.simvol[0]}})
+
+* image of slice of 2-pt statistics in simulation volume (3-D)
+* image of 2pt statistics in simulation volume (3-D)
+
 ### 2-point Statistics on Voxelized Simulation Volume
 
-One option is to discretize the simulation volume into smaller spatial bins (voxels). Each of these bins can be further discretized into sub-voxels, so that the location of every monomer is represented by a 1, while all other locations are assigned zero. Then, an auto-correlation can be performed in each larger bin for the monomers. It is hoped that the 2-point statistics for crystalline regions will match the 2-point statistics of an idealized polyethylene crystal to some degree. Using this methodology it is hoped that the degree of crystallinity and orientation of sptatial regions can be characterized.
-
 * image of voxel in simulation volume
-
-![simvol_with_voxels]({{page.voxelize[0]}})
-
-* image of subvoxelization
-
-![monomer_position_within_voxel]({{page.voxelize[1]}})
-
+* image of subvoxelization 
 * Perfect crystal visualization
-
-![simvol_with_voxels]({{page.voxelize[2]}})
-
-
-![simvol_with_voxels]({{page.voxelize[3]}})
-
-
 ![topview](https://farm4.staticflickr.com/3941/15410639440_628fbc5dc9.jpg)
-
 ![isoview](https://farm6.staticflickr.com/5603/15410639500_4a4ac2e958.jpg)
 
 * image of 2 point statistics in voxel
-
-![simvol_with_voxels]({{page.voxelize[4]}})
-
 * image of 2 point statistics in perfect crystal
-
-![simvol_with_voxels]({{page.voxelize[5]}})
-
-### 2-point Statistics for Entire Simulation Volume
-
-Another option for structural characterization is to bin every monomer, irrespective of the chain it is associated with, into a spatial bin. Bins with a value of 1 contain a monomer, while bins with a value of 0 do not. Then an auto-correlation can be performed for all elements (spatial bins) with a value of 1.
-
-_The entire simulation volume_
-
-![simvol_tilt6]({{page.simvol[0]}})
-
-The non-periodic, three-dimensional 2-point statistics (using [SpatialStatisticsFFT]({{page.links[0]}})) were calculated for the entire simulation volume for the first timestep. These statistics show a pattern particular to the structure of crystalline Polyethylene. The below image is a two dimensional representation of these statistics from the z = 0 slice. 
-
-_slice of 2-pt statistics in the simulation volume_
-
-![stats_z_slice_tilt6l]({{page.simvol[1]}})
-
-The following image is a representation of the three-dimensional 2-point statistics. Essentially, each point plotted is a location in the 2-point statistics with a probability greater than the specified threshold.
-
-_2-point statistics in the simulation volume with a limited vector length_
-
-![stats_prob_greater_than_4p5E-5_3DsmallA]({{page.simvol[2]}})
-
-
 
 
 ### Herman's Orientation Calculation on Voxelized Simulation Volume
 
 S = 3/2 < \cos^2\theta > -1/2
+
+*[Herman's Orientation](http://www.plastics-elearning.com/index.php?option=com_content&task=view&id=116&Itemid=) describes the orientation of a polymer chain with respect to a reference axis. 
+*As an update: we will likely abandon the idea of finding the best best line through each chain within a voxel. Instead we will find the vector for every other atom (avoid counting bond angle in directionality).
+    * Those vectors will be averaged for an average direction (reference axis). The Herman's Orientation will be measured for each "every other atom" vector, then averaged.
+* If chains are oriented (crystalline) Herman's will be close to 1. For completely amorphous we can expect something more around 0.5. 
+
+*Herman's orientation is a way for us to get degree of crystallinity within a voxel.
+
+*Other techniques will be applied to obtain crystal orientation.
+
+
+* Below is unit cell for PE, orthorhombic. The perfect crystal image above is based on this.
 
 ![Unit cell for PE](http://farm4.static.flickr.com/3309/4565353155_dcffa4f23c.jpg)
 
