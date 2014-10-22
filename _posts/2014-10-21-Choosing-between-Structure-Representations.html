@@ -45,7 +45,7 @@ _the following image shows the 8 voxels at the corners of the simulation volume_
 
 ![simvol_with_voxels]({{page.voxelize[0]}})
 
-_in the following image the location of each monomer (the blue circles) can be binned into sub-voxels (shown as cubes) 
+_in the following image the location of each monomer (the blue circles) can be binned into sub-voxels (shown as cubes)_ 
 
 ![monomer_position_within_voxel]({{page.voxelize[1]}})
 
@@ -84,23 +84,21 @@ _2-point statistics in the simulation volume with a limited vector length_
 
 S = 3/2 < \cos^2\theta > -1/2
 
-*[Herman's Orientation](http://www.plastics-elearning.com/index.php?option=com_content&task=view&id=116&Itemid=) describes the orientation of a polymer chain with respect to a reference axis. 
+* [Herman's Orientation](http://www.plastics-elearning.com/index.php?option=com_content&task=view&id=116&Itemid=) describes the orientation of a polymer chain with respect to a reference axis. 
 
-*As an update: we will likely abandon the idea of finding the best fit line through each chain within a voxel. Instead we will find the vector for every other atom (avoid counting bond angle in directionality).
+* As an update: we will likely abandon the idea of finding the best fit line through each chain within a voxel. Instead we will find the vector for every other atom (avoid counting bond angle in directionality).
 
     * Those vectors will be averaged for an average direction (reference axis). The Herman's Orientation will be measured for each "every other atom" vector, then averaged.
 
 * If chains are oriented (crystalline) Herman's will be close to 1. For completely amorphous we can expect something more around 0.5. 
 
-*Herman's orientation is a way for us to get degree of crystallinity within a voxel.
+* Herman's orientation is a way for us to get degree of crystallinity within a voxel.
 
-*Other techniques will be applied to obtain crystal orientation.
-
+* Other techniques will be applied to obtain crystal orientation.
 
 * Below is unit cell for PE, orthorhombic. The perfect crystal image above is based on this.
 
 ![Unit cell for PE](http://farm4.static.flickr.com/3309/4565353155_dcffa4f23c.jpg)
-
 
 
 ## Current Research Questions
