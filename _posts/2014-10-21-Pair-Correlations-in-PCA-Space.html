@@ -8,30 +8,39 @@ author: Noah Paulson
 
 pics:
 - https://farm4.staticflickr.com/3954/15594367831_688faacc37_o.png
--
--
+- https://farm6.staticflickr.com/5600/15594367921_0598137dd9_o.png
+- https://farm6.staticflickr.com/5601/15573351206_50ed3260a7_o.png
 
 ---
 
-###
-
-### Procedure Detect Similarity
+### Procedure to Detect Chain Similarity and Diversity
 
 1. Pair correlations were performed for each chain in the first time-step of a constant-volume uniaxial-tension PEMD simulation.
 
 2. These pair correlation results were represented as points in the PCA space.
 
-_The following plot shows the 20 chains for the first timestep in the pca1 and pca2 components_
+  _The following plot shows the 20 chains for the first time-step in the pca1 and pca2 components_
 
-![pca_chains_pca_space]({{page.voxelize[0]}})
+  ![pca_chains_pca_space]({{page.pics[0]}})
 
-3. 
+3. A reference chain was randomly selected (chain 17). The chains with the minimum and maximum Euclidean distance in all PCA components from the selected chain were identified (chains 10 and 19 respectively). Chains separated by a small Euclidean distance in PCA space are expected to be simmilar, while pairs separated by a large distance are expected to be structurally different.
 
+  _The following plot shows the pair correlations for the reference chain, the minimum PCA distance chain and the maximum PCA distance chain. Each individual pair correlation is plotted versus the average pair correlation for all chains._
+
+  ![pca_selected_pair_correlations]({{page.pics[1]}})
+
+  _The following image shows the structures of the reference chain, the minimum PCA distance chain and the maximum PCA distance chain.
+  
+  ![pca_selected_chains]({{page.pics[1]}})
+  
+### Conclusions
+
+From the preceding images it appears that the Euclidean distance between chains is a good qualitative measure of chain similarity (where pair correlations are used as representations of the chain structure). More investigation will be needed to verify this observation, and to connect this to some measure of crystallinity.
 
 
 ### Acknowledgements
 
-Dr. Tony Fast
+Dr. Tony Fast for ideas and encouragement
 
 ### References
 
