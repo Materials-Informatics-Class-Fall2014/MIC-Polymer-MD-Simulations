@@ -17,7 +17,7 @@ pics:
 
 1. Pair correlations were performed for each chain in the first time-step of a constant-volume uniaxial-tension PEMD simulation.
 
-2. These pair correlation results were represented as points in the PCA space.
+2. To prepare for PCA, the pair correlation bincounts were represented as row vectors and concatenated into an array. Each column of the array was then normalized by its mean. This array was then used to calculate the PCA basis. The pair correlation results were then represented as points in the PCA space.
 
   _The following plot shows the 20 chains for the first time-step in the pca1 and pca2 components_
 
@@ -31,7 +31,7 @@ pics:
 
   _The following image shows the structures of the reference chain, the minimum PCA distance chain and the maximum PCA distance chain.
   
-  ![pca_selected_chains]({{page.pics[1]}})
+  ![pca_selected_chains]({{page.pics[2]}})
   
 ### Conclusions
 
