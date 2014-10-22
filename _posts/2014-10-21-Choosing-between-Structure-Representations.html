@@ -41,27 +41,21 @@ We want to characterize the linkage between processing (including material start
 
 One option is to discretize the simulation volume into smaller spatial bins (voxels). Each of these bins can be further discretized into sub-voxels, so that the location of every monomer is represented by a 1, while all other locations are assigned zero. Then, an auto-correlation can be performed in each larger bin for the monomers. It is hoped that the 2-point statistics for crystalline regions will match the 2-point statistics of an idealized polyethylene crystal to some degree. Using this methodology it is hoped that the degree of crystallinity and orientation of sptatial regions can be characterized.
 
-* image of voxel in simulation volume
+_the following image shows the 8 voxels at the corners of the simulation volume_
 
 ![simvol_with_voxels]({{page.voxelize[0]}})
 
-* image of subvoxelization
+_in the following image the location of each monomer (the blue circles) can be binned into sub-voxels (shown as cubes) 
 
-![monomer_position_within_voxel]({{page.voxelize[1]}})
+![monomer_position_within_voxel]({{page.voxelize[1]}}
 
-* Perfect crystal visualization
+_the following two images show the structure of an idealized polyethylene crystal_
 
 ![topview]({{page.voxelize[2]}})
 
-
 ![isoview]({{page.voxelize[3]}})
 
-
-![topview](https://farm4.staticflickr.com/3941/15410639440_628fbc5dc9.jpg)
-
-![isoview](https://farm6.staticflickr.com/5603/15410639500_4a4ac2e958.jpg)
-
-* image of 2 point statistics in voxel
+_The following image shows the 2-point statistics for a spatial bin. Each point plotted is a location in the 2-point statistics with a probability greater than the specified threshold
 
 ![stats_voxel_3D_A]({{page.voxelize[4]}})
 
