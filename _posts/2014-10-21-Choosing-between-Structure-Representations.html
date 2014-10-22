@@ -31,6 +31,8 @@ We want to characterize the linkage between processing (including material start
 
 ### 2-point Statistics on Voxelized Simulation Volume
 
+One option is to discretize the simulation volume into smaller spatial bins (voxels). Each of these bins can be further discretized into sub-voxels, so that the location of every monomer is represented by a 1, while all other locations are assigned zero. Then, an auto-correlation can be performed in each larger bin for the particles. 
+
 * image of voxel in simulation volume
 * image of subvoxelization 
 * Perfect crystal visualization
@@ -44,7 +46,7 @@ We want to characterize the linkage between processing (including material start
 
 ### 2-point Statistics for Entire Simulation Volume
 
-One option for structural characterization is to bin every monomer, irrespective of the chain it is associated with, into a spatial bin. Bins with a value of 1 contain a monomer, while bins with a value of 0 do not. Then an auto-correlation can be performed for all elements (spatial bins) with a value of 1.
+Another option for structural characterization is to bin every monomer, irrespective of the chain it is associated with, into a spatial bin. Bins with a value of 1 contain a monomer, while bins with a value of 0 do not. Then an auto-correlation can be performed for all elements (spatial bins) with a value of 1.
 
 _The entire simulation volume_
 
