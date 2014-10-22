@@ -39,7 +39,7 @@ We want to characterize the linkage between processing (including material start
 
 ### 2-point Statistics on Voxelized Simulation Volume
 
-One option is to discretize the simulation volume into smaller spatial bins (voxels). Each of these bins can be further discretized into sub-voxels, so that the location of every monomer is represented by a 1, while all other locations are assigned zero. Then, an auto-correlation can be performed in each larger bin for the monomers. It is hoped that the 2-point statistics for crystalline regions will match the 2-point statistics of an idealized polyethylene crystal to some degree. Using this methodology it is hoped that the degree of crystallinity and orientation of sptatial regions can be characterized.
+One option is to discretize the simulation volume into smaller spatial bins (voxels). Each of these bins can be further discretized into sub-voxels, so that the location of every monomer is represented by a 1, while all other locations are assigned zero. Then, an auto-correlation can be performed in each larger bin for the monomers. It is hoped that the 2-point statistics for crystalline regions will match the 2-point statistics of an idealized polyethylene crystal to some degree. Using this methodology it is hoped that the degree of crystallinity and orientation of spatial regions can be characterized.
 
 _the following image shows the 8 voxels at the corners of the simulation volume_
 
@@ -47,7 +47,7 @@ _the following image shows the 8 voxels at the corners of the simulation volume_
 
 _in the following image the location of each monomer (the blue circles) can be binned into sub-voxels (shown as cubes) 
 
-![monomer_position_within_voxel]({{page.voxelize[1]}}
+![monomer_position_within_voxel]({{page.voxelize[1]}})
 
 _the following two images show the structure of an idealized polyethylene crystal_
 
@@ -67,7 +67,7 @@ _The entire simulation volume_
 
 ![simvol_tilt6]({{page.simvol[0]}})
 
-The non-periodic, three-dimensional 2-point statistics (using [SpatialStatisticsFFT]({{page.links[0]}})) were calculated for the entire simulation volume for the first timestep. These statistics show a pattern particular to the structure of crystalline Polyethylene. The below image is a two dimensional representation of these statistics from the z = 0 slice. 
+The non-periodic, three-dimensional 2-point statistics (using [SpatialStatisticsFFT]({{page.links[0]}})) were calculated for the entire simulation volume for the first time-step. These statistics show a pattern particular to the structure of crystalline Polyethylene. The below image is a two dimensional representation of these statistics from the z = 0 slice. 
 
 _slice of 2-pt statistics in the simulation volume_
 
@@ -85,8 +85,11 @@ _2-point statistics in the simulation volume with a limited vector length_
 S = 3/2 < \cos^2\theta > -1/2
 
 *[Herman's Orientation](http://www.plastics-elearning.com/index.php?option=com_content&task=view&id=116&Itemid=) describes the orientation of a polymer chain with respect to a reference axis. 
-*As an update: we will likely abandon the idea of finding the best best line through each chain within a voxel. Instead we will find the vector for every other atom (avoid counting bond angle in directionality).
+
+*As an update: we will likely abandon the idea of finding the best fit line through each chain within a voxel. Instead we will find the vector for every other atom (avoid counting bond angle in directionality).
+
     * Those vectors will be averaged for an average direction (reference axis). The Herman's Orientation will be measured for each "every other atom" vector, then averaged.
+
 * If chains are oriented (crystalline) Herman's will be close to 1. For completely amorphous we can expect something more around 0.5. 
 
 *Herman's orientation is a way for us to get degree of crystallinity within a voxel.
@@ -102,7 +105,7 @@ S = 3/2 < \cos^2\theta > -1/2
 
 ## Current Research Questions
 
-* How can we leverage the pair correlation of two chains to better understand the crystallinity in our data?
+* Which of our measures of crystallinity is most effective
 
 * How finely can we discretize our data without sacrificing accuracy in the determination of crystallinity?
 
