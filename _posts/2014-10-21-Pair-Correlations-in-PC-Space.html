@@ -2,7 +2,7 @@
 layout: post
 title: Detecting Chain Similarity through Pair Correlations in PCA Space
 tagline: >
-  Structurally similar chains were identified by measuring the distances between chains in the PCA space. The PCA representations of structure were derived from pair autocorrelations.
+  Structurally similar chains were identified by measuring the distances between chains in the PC space. The PC representations of structure were derived from pair autocorrelations.
 
 author: Noah Paulson
 
@@ -17,9 +17,9 @@ pics:
 
 * Pair correlations were performed for each chain in the first time-step of a constant-volume uniaxial-tension PEMD simulation.
 
-* To prepare for PCA, the pair correlation bincounts were represented as row vectors and concatenated into an array. Each column of the array was then normalized by its mean. This array was then used to calculate the PCA basis. The pair correlation results were then represented as points in the PCA space.
+* To prepare for PCA, the pair correlation bincounts were represented as row vectors and concatenated into an array. Each column of the array was then normalized by its mean. This array was then used to calculate the PCA basis. The pair correlation results were then represented as points in the PC space.
 
-_The following plot shows the 20 chains for the first time-step in the pca1 and pca2 components_
+_The following plot shows the 20 chains for the first time-step in the pc1 and pc2 components_
 
   ![pca_chains_pca_space]({{page.pics[0]}})
 
