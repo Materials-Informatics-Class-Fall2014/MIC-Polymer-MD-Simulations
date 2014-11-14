@@ -72,7 +72,7 @@ _in this image a voxel was considered 'crystalline' if the density exceeded 0.85
 
 Herman's Orientation was calculated by modifying the calculation of Dong, et. al, 2014 and Ko, et. al., 2004 where a vector was calculated between every other monomer. The angle between that vector and vectors found for each chain within a voxel was then used in the below equation to obtain Herman's orientation measures. This process was repeated for all vectors in a voxel and then the average Herman's orientation was taken for the voxel.
 
-_$$S_{i,j} = \dfrac{3\cos(\frac{r_i*r_j}{|r_i|*|r_j|})^2-1}{2}$$_
+_$$S_{i,j} = \dfrac{3\cos(\frac{r_i*r_j}{\|r_i\|*\|r_j\|})^2-1}{2}$$_
 
 _this image shows the Herman's Orientation measure in each voxel_
 
