@@ -2,7 +2,7 @@
 layout: post
 title: Visualization of Crystallinity Results
 tagline: >
-  Here we show visualizations of the various crystallinity measures performed on the voxelized simulation for a single timestep.
+  Here we show visualizations of the various crystallinity measures performed on the voxelized simulation for a single time-step.
 
 author: Noah Paulson, Alex Lohse
 
@@ -23,7 +23,7 @@ pics:
 
 ## Introduction
 
-In this post we present the preliminary results and procedures for a new measure of crystallinity in polyethylene polymer MD simulations. We use this method, here called crystalline autocorrelation probability, along with density and Hermans Orientation to characterize the local crystallinity in a single timestep of an MD simulation. 
+In this post we present the preliminary results and procedures for a new measure of crystallinity in polyethylene polymer MD simulations. We use this method, here called crystalline autocorrelation probability, along with density and Herman's Orientation to characterize the local crystallinity in a single time-step of an MD simulation. 
 
 ## Procedure
 
@@ -33,7 +33,7 @@ _this image shows the original monomer and chain locations (where each chain has
 
 ![voxelized]({{page.pics[0]}})
 
-Next, each of these spatial bins is further discretized to a level chosen by the user. In this discretized domain each monomer is represented by a sphere of a specified radius (in this case about half the interatomic distance). This increases the volume fraction of the monomer phase in the 2-pt statistics, and improves the autocorrelation results. The procedure yields a micrsostructure function the discretized domain where a 1s represent PE material and 0s are open space. 
+Next, each of these spatial bins is further discretized to a level chosen by the user. In this discretized domain each monomer is represented by a sphere of a specified radius (in this case about half the interatomic distance). This increases the volume fraction of the monomer phase in the 2-pt statistics, and improves the autocorrelation results. The procedure yields a microstructure function the discretized domain where a 1s represent PE material and 0s are open space. 
 
 _In the image below the original monomer locations are shown in yellow while the volumized monomers are represented by the purple markers_
 
@@ -57,7 +57,7 @@ _below is an image showing all locations in the 3-D voxel where the 2-pt statist
 
 ## Results
 
-In this section, density, Hermans Orientation and crystalline autocorrelation probabilities are shown for each voxel of the simulation at a single timestep. In addition a crystallinity map is associated with each of the three measures where some threshold for crystallinity is defined. Every image is acompanied by a slice of the actual simulation. It is hoped that this will aid the viewer in recognizing the difference between crystalline and amorphous regions in the simulation.
+In this section, density, Herman's Orientation and crystalline autocorrelation probabilities are shown for each voxel of the simulation at a single time-step. In addition a crystallinity map is associated with each of the three measures where some threshold for crystallinity is defined. Every image is accompanied by a slice of the actual simulation. It is hoped that this will aid the viewer in recognizing the difference between crystalline and amorphous regions in the simulation.
 
 _this image shows the discretized density in each voxel for every slice of the microstructure next to slices of the actual monomer locations_
 
@@ -67,7 +67,7 @@ _in this image a voxel was considered 'crystalline' if the density exceeded 0.85
 
 ![densityTHR_slices]({{page.pics[6]}})
 
-_this image shows the Hermans Orientation measure in each voxel_
+_this image shows the Herman's Orientation measure in each voxel_
 
 ![hermans_orientation_slices]({{page.pics[7]}})
 
