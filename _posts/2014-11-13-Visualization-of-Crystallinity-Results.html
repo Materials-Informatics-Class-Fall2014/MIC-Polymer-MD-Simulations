@@ -23,7 +23,7 @@ pics:
 
 ## Introduction
 
-In this post we present the preliminary results and procedures for a new measure of crystallinity in polyethylene polymer MD simulations. We use this method, here called crystalline autocorrelation probability, along with density and Herman's Orientation to characterize the local crystallinity in a single time-step of an MD simulation. As has been cited in the literature (Ko, et al., 2004, and Hossain, et. al., 2010) at higher strain levels the amorphous and crystalline regions of the structure will also align. Thus, at higher strain levels using Herman's orientation as a thresholded measure of crystallinity is not feasible. 
+In this post we present the preliminary results and procedures for a new measure of crystallinity in polyethylene polymer MD simulations. We use this method, here called crystalline autocorrelation probability, along with density and Herman's Orientation to characterize the local crystallinity in a single time-step of an MD simulation. As has been cited in the literature (Ko, et al., 2004, and Hossain, et. al., 2010) at higher strain levels the amorphous and crystalline regions of the structure will also align. (See visualization [here](http://alohse.github.io/MIC-Polymer-MD-Simulations/2014/11/13/Recent-Molecular-Dynamics-Simulations.html) of uniaxial deformation of amorphous polyethylene). This increases Herman's orientation for the amorphous region making it challenging to use the parameter to distinguish crystallinity. 
 
 ## Procedure
 
@@ -58,6 +58,9 @@ _below is an image showing all locations in the 3-D voxel where the 2-pt statist
 ## Results
 
 In this section, density, Herman's Orientation and crystalline autocorrelation probabilities are shown for each voxel of the simulation at a single time-step. In addition a crystallinity map is associated with each of the three measures where some threshold for crystallinity is defined. Every image is accompanied by a slice of the actual simulation. It is hoped that this will aid the viewer in recognizing the difference between crystalline and amorphous regions in the simulation.
+
+Mass density is calculated in each voxel by the rearrangement of the equation relating number density and mass density.
+_$$\rho = \dfrac{n*M_CH_2}{N_A}$$_
 
 _this image shows the discretized density in each voxel for every slice of the microstructure next to slices of the actual monomer locations_
 
