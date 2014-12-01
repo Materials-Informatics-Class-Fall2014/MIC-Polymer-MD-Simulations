@@ -23,27 +23,40 @@ results:
 
 _The following image shows slices of the autocorrelation for a semicrystalline voxel of the tilt6l simulation at 0.1 strain_
 
-![tilt_auto]({{page.results[0]}})
+![slices of the autocorrelation for a semicrystalline voxel of the tilt6l simulation at 0.1 strain]({{page.results[0]}})
 
 _In the following 3D image a threshold is applied to the autocorrelation so that only 5.0% of the vectors are above the threshold_
 
-![tilt_auto_thresh]({{page.results[1]}})
+![a threshold is applied to the autocorrelation so that only 5.0% of the vectors are above the threshold]({{page.results[1]}})
+
+In the following images, voxel density, Herman's orientation and crystalline degree are shown as $\rho$, $\theta$ and  $C^{\circ}$ respectively 
 
 _In the following image the three crystallinity measures and their thresholds are compared for a slice of the tilt6l simulation at 0.1 strain_
 
-![tilt_measures_dench]({{page.results[2]}})
+![the three crystallinity measures and their thresholds are compared for a slice of the tilt6l simulation at 0.1 strain]({{page.results[2]}})
 
 _The following image shows the autocorrelations on the crystalline phase for the thresholds on all three crystallinity measures for a slice of the tilt6l simulation at 0.1 strain_
 
-![tilt_measures_auto_dench]({{page.results[3]}})
+![autocorrelations on the crystalline phase for the thresholds on all three crystallinity measures for a slice of the tilt6l simulation at 0.1 strain]({{page.results[3]}})
 
-_In the following image each point is associated with the values of the three crystallinity measures at each voxel of the microstructures studied_
+In the following images each point is associated with the values of the three crystallinity measures at each voxel of the microstructures studied. The purpose of this exercise is to explore the relationships between these measures for as wide a range as possible of polyethylene structures.
 
-![meas_scatter_1]({{page.results[4]}})
+_In the following images tilt1 - tilt10 are strain levels 0.1 to 1.0 for the tilt6l simulation, cry2 through cry4 are perfect crystals and amp1 is an equilibriated amorphous microstructure._
 
-_This image is the same as the previous, yet only shows Herman's orientation versus crystalline degree_
+![tilt1 - tilt10 are strain levels 0.1 to 1.0 for the tilt6l simulation, cry2 through cry4 are perfect crystals and amp1 is an equilibriated amorphous microstructure]({{page.results[4]}})
 
-![meas_scatter_4]({{page.results[5]}})
+_Herman's orientation versus crystalline degree_
+
+![tilt1 - tilt10 are strain levels 0.1 to 1.0 for the tilt6l simulation, cry2 through cry4 are perfect crystals and amp1 is an equilibriated amorphous microstructure]({{page.results[5]}})
+
+## Conclusions ##
+
+* Density appears to have a weak relationship with both Herman's orientation and crystalline degree
+* Herman's orientation and crystalline degree are more correlated.
+  * A clear division can be drawn between amorphous and purely crystalline regions for both the Herman's orienation and crystalline degree measures.
+* For perfect crystals, Herman's orientation in a voxel is always 1.00 while density and crystalline degree may widely vary
+  * The 1.00 Herman's orienation is expected as chains are completely aligned in a perfect crystal
+  * The density would be expected to converge as the voxel size is increased, though this would also reduce the resolution of the measures
 
 
 ### References
