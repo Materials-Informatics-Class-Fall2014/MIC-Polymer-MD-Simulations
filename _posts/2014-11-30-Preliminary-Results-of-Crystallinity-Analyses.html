@@ -50,6 +50,9 @@ In this post the autocorrelations on the thresholds of three measures of crystal
 
 First the microstructure function is generated for the voxel of interest and the 2-pt autocorrelation on the polyethylene monomer is performed. These are slices from the autocorrelation of a semicrystalline voxel of the tilt6l simulation at 0.1 strain.
 
+Q: If the monomers are represented as spheres in the microstructure function, what should thier radius be?
+A: Currently this radius is taken as 0.77 Angstroms, half the bond length. Should this number instead be related to the Lennard-Jones united atom monomer size? What should this relation be?
+
 ![slices of the autocorrelation for a semicrystalline voxel of the tilt6l simulation at 0.1 strain]({{page.results[0]}})
 
 Next, a threshold is applied to the autocorrelation so that only 5.0% of the vectors are above the threshold. 
@@ -62,6 +65,9 @@ Finally, the crystalline degree measure is taken as the mean probability of thos
 
 First we examine the values of the crystallinity measures, their thresholds and the associated autocorrelations are shown for a slice of the tilt6l simulation at 0.1 strain. The threshold level is chosen so that the crystalline volume fraction for both density and crystalline degree match that of Herman's orienatation with a 0.6 threshold (cells with a Herman's orientation exceeding 0.6 are considered crystalline). The crystalline volume fraction for this microstructure instantiation is 0.64.
 _(voxel density, Herman's orientation and crystalline degree are shown as $\rho$, $\theta$ and  $C^{\circ}$ respectively)_
+
+Q: How does the size of the voxel impact the various measures of crystallinity?
+A: Herman's Orienatation is less dependent on voxel size. Both density and crystalline degree will increase in accuracy for larger voxel sizes. As the size of the voxel decreases, there are a smaller number of monomers in the voxel, and this increases the scatter in the measure of density. The same is true for the crystalline degree measure, the fewer the number of monomers in the voxel, the weaker are the spatial correlations.
 
 ![the three crystallinity measures and their thresholds are compared for a slice of the tilt6l simulation at 0.1 strain]({{page.results[2]}})
 
