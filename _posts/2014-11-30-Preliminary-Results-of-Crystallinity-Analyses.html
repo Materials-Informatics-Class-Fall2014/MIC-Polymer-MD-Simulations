@@ -22,6 +22,28 @@ results:
 
 ## Introduction
 
+Current measures of crystallinity in molecular dynamics simulations (MD), for example density and Herman's Orienation, are based on characteristics related to crystalline order, however they do not take into account the spatial relationships between individual monomers. We propose a measure which takes advantage of the spatial correlations of monomers in united atom polyethylene MD simulations in the determiniation of crystallinity.
+
+Problem statement: develop a new local measure of crystallinity for polyethylene (PE) molecular dynamics (MD) simulations. 
+
+## Background
+
+Q: Why do we want to characterize crystallinity at a local level in MD simulations?
+A: The degree of crystallinity on the microscale governs properties at larger lengthscales.
+
+Q: What are the current measures of crystallinity used in literature
+A: The most popular are Herman's Orienation and Density
+
+The mass density of polyethelene calculated based on the number density of monomers in a region of interest. Specifically the following equation was utilized:
+
+_$$\rho = \dfrac{n*M_{CH_2}}{N_A}$$_
+
+Herman's orientation is a measure of the misorientation between a reference axis and the axis of interest. Herman’s Orientation was calculated by modifying the calculation of Dong, et. al, 2014 and Ko, et. al., 2004 where a vector was calculated between every other monomer. The angle between that vector and vectors found for each chain within a voxel was then used in the below equation to obtain Herman’s orientation measures. This process was repeated for all vectors in a voxel and then the average Herman’s orientation was taken for the voxel. Herman's orientation ranges from a value of 1 for a perfectly crystalline region to less than 0 for amorphous regions. In literature a value of 0.6 for the Herman's Orientation is chosen as a threshold to indicate crystallinity. 
+
+_$$S_{i,j} = \dfrac{3\cos(\frac{r_i*r_j}{\|r_i\|\|r_j\|})^2-1}{2}$$_
+
+Q: What are some example of when density or Herman's Orientation fail in characterizing crystallinity?
+
 In this post the autocorrelations on the thresholds of three measures of crystallinity (density, Herman's orientation and crystalline degree) are compared. In addition, a plot is presented which compares the the three crystallinity measures for individual voxels of a variety of microstructures.
 
 ## Review of the crystalline degree measure 
