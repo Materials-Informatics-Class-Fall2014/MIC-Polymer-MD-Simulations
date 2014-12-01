@@ -13,6 +13,10 @@ results:
 - https://farm8.staticflickr.com/7541/15891652316_aa6d02fa73_o.png
 - https://farm8.staticflickr.com/7560/15891652296_6b190a75cf_o.png
 - https://farm9.staticflickr.com/8667/15731432399_205d034fe2_o.png
+- https://farm8.staticflickr.com/7545/15898259886_184b1b53ce.jpg
+- https://farm8.staticflickr.com/7528/15736722570_4e9450c7ed.jpg
+- https://farm8.staticflickr.com/7582/15898208946_2f617cafdb.jpg
+- https://farm8.staticflickr.com/7512/15737999079_b38a070f2e.jpg
 
 ---
 
@@ -48,6 +52,19 @@ _In the following images tilt1 - tilt10 are strain levels 0.1 to 1.0 for the til
 ![tilt1 - tilt10 are strain levels 0.1 to 1.0 for the tilt6l simulation, cry2 through cry4 are perfect crystals and amp1 is an equilibriated amorphous microstructure]({{page.results[4]}})
 
 ![tilt1 - tilt10 are strain levels 0.1 to 1.0 for the tilt6l simulation, cry2 through cry4 are perfect crystals and amp1 is an equilibriated amorphous microstructure]({{page.results[5]}})
+
+Theoretical amorphous structures are being generated using the Polymer Modeler tool on Nanohub.org. This tool allows creation of amorphous polymer structures of user defined density, conformation probabilities, and processing conditions.
+
+_Screenshot of the Polymer Modeler tool_
+![Screenshot of the polymer modeler tool]({{page.results[7]}})
+_0.86 g/cm^3 density in 50 Angstrom^3 box_
+![0.86 density]({{page.results[9]}})
+_0.31 g/cm^3 density in 50 Angstrom^3 box_
+![0.31 density]({{page.results[10]}})
+
+Crystalline regions were developed in Matlab with varying sizes. Using [PACKMOL](http://www.ime.unicamp.br/~martinez/packmol/), amorphous and crystalline chains/regions were packed into a box of our simulation size with varying density. In this way we can verify our measures by knowing the exact location of colume fraction of crystalline regions we should receive. The next step is to perform energy minimzation in [LAMMPS](http://lammps.sandia.gov/) to get an equilibrated structure and then generate realistic structures through simulation.
+_Theoretical semi-crystalline structure_
+![Theoretical semi-xtal structure]({{page.results[8]}})
 
 ## Conclusions ##
 
